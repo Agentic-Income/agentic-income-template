@@ -35,7 +35,7 @@ A clone-and-deploy starter for an honest AI-tool comparison site that earns recu
 ## Quick start
 
 ```bash
-git clone https://github.com/frankxai/agentic-income-template my-income-site
+git clone https://github.com/Agentic-Income/agentic-income-template my-income-site
 cd my-income-site
 pnpm install
 pnpm dev
