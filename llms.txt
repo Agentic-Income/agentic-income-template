@@ -1,0 +1,49 @@
+# Agentic Income Template
+
+> MIT-licensed Next.js 16 + MDX starter for an honest AI-tool comparison site. Clone it, set your brand in one file, publish real comparisons, and connect affiliate links you have actually joined. It is a template, not a live site, and it promises no income.
+
+Audience: developers and operators who will write the comparisons themselves and deploy the result on their own hosting. Not a hosted product, not a done-for-you business.
+
+## Use it
+
+Requires Node and pnpm (CI runs Node 24 and pnpm 10).
+
+    git clone https://github.com/Agentic-Income/agentic-income-template my-income-site
+    cd my-income-site
+    pnpm install
+    pnpm dev
+
+Quality gates, the same ones CI runs:
+
+    pnpm run lint
+    pnpm run build
+
+Optional, and only when a sibling clone of `Agentic-Income/affiliate-agent-skills` exists:
+
+    pnpm run sync:catalog      # re-vendor data/programs.json from the engine catalog
+    pnpm run audit:affiliate   # run the shared post audit; set AFFILIATE_ENGINE to override the sibling path
+
+## Key files
+
+- `lib/site.ts` — the only brand-specific file: name, domain, tagline, nav, and cross-links to your other sites.
+- `lib/affiliate.ts` — `getLink(tool)` returns a joined affiliate URL or `null`; callers render plain text, never a dead link.
+- `data/programs.json` — starter affiliate catalog with commission, recurring terms, and signup URLs.
+- `app/blog/best-ai-writing-assistants/page.mdx` — the reference post shape: answer box, sortable table, honest pick, FAQ with FAQPage JSON-LD, one disclosure.
+- `lib/posts.ts` — post registry that drives the blog index, ordering, and metadata.
+- `AGENTS.md` — repo contract for anyone, human or agent, editing this template.
+
+## Scope and exclusions
+
+- This repository is a starter. It has no checkout, no customer data, and no deployment of its own; you clone and deploy it yourself.
+- Email capture (`components/EmailCapture.tsx`) is a stub that says so. Connect your own ESP endpoint. No analytics is wired.
+- `data/programs.json` is a dated starter catalog, not verified current offers. Re-check commission, cookie, and recurring terms before relying on them.
+- The honest pick outranks the commission. One disclosure per page.
+- No income promises, no invented traffic or revenue figures, no claims that a clone produces earnings.
+- Do not add real API keys or a real affiliate account's credentials to this repo.
+
+## Links
+
+- [README](./README.md)
+- [AGENTS.md](./AGENTS.md)
+- [Organization profile](https://github.com/Agentic-Income)
+- [Affiliate engine](https://github.com/Agentic-Income/affiliate-agent-skills)
